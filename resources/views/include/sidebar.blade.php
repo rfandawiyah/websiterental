@@ -10,8 +10,8 @@
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20"
-                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                        aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20"
+                        height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
                         <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path
@@ -46,15 +46,15 @@
             <ul class="menu">
                 <li class="sidebar-title">MAIN MENU</li>
 
-                <li class="sidebar-item active ">
-                    <a href="dashboard" class='sidebar-link'>
+                <li class="sidebar-item {{ Route::is('dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item active">
-                    <a href="order" class='sidebar-link'>
+                <li class="sidebar-item {{ Route::is('order') ? 'active' : '' }}">
+                    <a href="{{ route('order') }}" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
                         <span>Order</span>
                     </a>
@@ -65,8 +65,8 @@
                     </ul> -->
                 </li>
 
-                <li class="sidebar-item  ">
-                    <a href="pelanggan" class='sidebar-link'>
+                <li class="sidebar-item {{ Route::is('pelanggan') ? 'active' : '' }}">
+                    <a href="{{ route('pelanggan') }}" class='sidebar-link'>
                         <i class="bi bi-collection-fill"></i>
                         <span>Pelanggan</span>
                     </a>
@@ -77,8 +77,8 @@
                     </ul> -->
                 </li>
 
-                <li class="sidebar-item  ">
-                    <a href="riwayat" class='sidebar-link'>
+                <li class="sidebar-item {{ Route::is('riwayat') ? 'active' : '' }}">
+                    <a href="{{ route('riwayat') }}" class='sidebar-link'>
                         <i class="bi bi-grid-1x2-fill"></i>
                         <span>Riwayat Transaksi</span>
                     </a>

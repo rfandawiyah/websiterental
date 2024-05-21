@@ -41,3 +41,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [registerController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
+// route sidebar aktif
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/order', [orderController::class, 'index'])->name('order');
+Route::get('/pelanggan', [pelangganController::class, 'index'])->name('pelanggan');
+Route::get('/riwayat', [riwayatController::class, 'index'])->name('riwayat');
