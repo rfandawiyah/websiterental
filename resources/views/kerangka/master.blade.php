@@ -21,11 +21,11 @@
             </header>
 
             <div class="page-heading">
-                <h3>hallo admin</h3>
+                <h3>Hallo Admin</h3>
             </div>
             @yield('content')
 
-            @include('include.footer')
+            {{-- @include('include.footer') --}}
         </div>
     </div>
 

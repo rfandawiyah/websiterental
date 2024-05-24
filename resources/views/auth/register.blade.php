@@ -21,39 +21,45 @@
                     <h1 class="auth-title">Sign Up</h1>
                     <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
 
-                    <form method="post" action="{{route('register.store')}}">
-                    @csrf
+                    <form method="post" action="{{ route('register.store') }}">
+                        @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" id="name" name="name" class="form-control @error('name') is invalid
+                            <input type="text" id="name" name="name"
+                                class="form-control @error('name') is invalid
                             @enderror
-                            form-control-xl" placeholder="Username">
+                            form-control-xl"
+                                placeholder="Username">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                             @error('name')
-                            <small class="btn btn danger">{{$message}}</small>
+                                <small class="btn btn bg-danger text-white">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" id="email" name="email" class="form-control @error('email') is invalid
+                            <input type="text" id="email" name="email"
+                                class="form-control @error('email') is invalid
                             @enderror
-                            form-control-xl" placeholder="Email">
+                            form-control-xl"
+                                placeholder="Email">
                             <div class="form-control-icon">
                                 <i class="bi bi-envelope"></i>
                             </div>
                             @error('email')
-                            <small class="btn btn danger">{{$message}}</small>
+                                <small class="btn btn bg-danger text-white">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" id="password" name="password" class="form-control @error('password') is invalid
+                            <input type="password" id="password" name="password"
+                                class="form-control @error('password') is invalid
                             @enderror
-                            form-control-xl" placeholder="Password">
+                            form-control-xl"
+                                placeholder="Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                             @error('password')
-                            <small class="btn btn danger">{{$message}}</small>
+                                <small class="btn btn bg-danger text-white">{{ $message }}</small>
                             @enderror
                         </div>
                         <!-- <div class="form-group position-relative has-icon-left mb-4">

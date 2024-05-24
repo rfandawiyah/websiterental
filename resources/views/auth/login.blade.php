@@ -19,17 +19,26 @@
                     <h1 class="auth-title">Log in.</h1>
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
-                    <form method="post" action="{{route('login.store') }}">
-                    @csrf
+                    <form method="post" action="{{ route('login.store') }}">
+                        @csrf
+                        @if (@session()->has('loginError'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ session('loginError') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" id="name" name="name" class="form-control @error('name') is invalid
+                            <input type="text" id="name" name="name"
+                                class="form-control @error('name') is invalid
                             @enderror
-                            form-control-xl" placeholder="Username">
+                            form-control-xl"
+                                placeholder="Username">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                             @error('name')
-                            <small class="btn btn danger">{{$message}}</small>
+                                <small class="btn btn bg-danger text-white">{{ $message }}</small>
                             @enderror
                         </div>
                         <!-- <div class="form-group position-relative has-icon-left mb-4">
@@ -40,18 +49,20 @@
                                 <i class="bi bi-person"></i>
                             </div>
                             @error('name')
-                            <small class="btn btn danger">{{$message}}</small>
-                            @enderror
+    <small class="btn btn danger">{{ $message }}</small>
+@enderror
                         </div> -->
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" id="password" name="password" class="form-control @error('password') is invalid
+                            <input type="password" id="password" name="password"
+                                class="form-control @error('password') is invalid
                             @enderror
-                            form-control-xl" placeholder="Password">
+                            form-control-xl"
+                                placeholder="Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                             @error('password')
-                            <small class="btn btn danger">{{$message}}</small>
+                                <small class="btn btn bg-danger text-white">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-check form-check-lg d-flex align-items-end">
