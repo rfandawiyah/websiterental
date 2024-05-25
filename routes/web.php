@@ -29,9 +29,11 @@ Route::get('/cars', [carsController::class, 'index'])->middleware('auth');
 Route::get('/admin', [adminController::class, 'index'])->middleware('auth');
 Route::get('/order', [orderController::class, 'index'])->middleware('auth');
 Route::get('/riwayat', [riwayatController::class, 'index'])->middleware('auth');
-Route::get('/add_cars', [add_carsController::class, 'index'])->middleware('auth');
 Route::get('/pelanggan', [pelangganController::class, 'index'])->middleware('auth');
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware('auth');
+
+Route::get('/add_cars', [add_carsController::class, 'index'])->middleware('auth');
+Route::post('/add', [add_carsController::class, 'store'])->name('store.add')->middleware('auth');
 
 Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/log', [LoginController::class, 'login'])->name('login.store');
@@ -46,3 +48,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/order', [orderController::class, 'index'])->name('order');
 Route::get('/pelanggan', [pelangganController::class, 'index'])->name('pelanggan');
 Route::get('/riwayat', [riwayatController::class, 'index'])->name('riwayat');
+Route::get('/cars', [carsController::class, 'index'])->name('cars');
+Route::post('/add_cars', [add_carsController::class, 'index'])->name('add_cars');
