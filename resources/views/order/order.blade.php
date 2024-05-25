@@ -3,31 +3,36 @@
 @extends('kerangka.master')
 @section('title', 'Dashboard')
 @section('content')
-    <div class="page-content">
-        <section class="row">
-            <div class="col-12 col-lg-9">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>table order</h4>
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-dark table-striped">
+<div class="page-content">
+    <section class="row">
+        <div class="col-12 col-lg-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Tabel Pesanan</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <th>ID PESANAN</th>
+                                    <th>DIBUAT</th>
+                                    <th>PELANGGAN</th>
+                                    <th>TOTAL</th>
+                                    <th>TANGGAL</th>
+                                    <th>STATUS</th>
+                                </thead>
+                                <tbody>
                                     <tr>
-                                        <th>ORDER ID</th>
-                                        <th>CREATED</th>
-                                        <th>CUSTOMER</th>
-                                        <th>TOTAL</th>
-                                        <th>DATE</th>
-                                        <th>STATUS</th>
+
                                     </tr>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+</div>
 @endsection

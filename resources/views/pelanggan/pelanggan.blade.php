@@ -1,33 +1,36 @@
+{{-- dashboard --}}
+
 @extends('kerangka.master')
+@section('title', 'Dashboard')
 @section('content')
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">No Telp</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Firman</td>
-                <td>Jember</td>
-                <td>081</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Fir</td>    
-                <td>Jember</td>
-                <td>081</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Man</td>
-                <td>Jember</td>
-                <td>081</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="page-content">
+    <section class="row">
+        <div class="col-12 col-lg-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Tabel Pelanggan</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <th>NAMA PELANGGAN</th>
+                                    <th>NOMOR TELEPHON</th>
+                                    <th>TANGGAL</th>
+                                    <th>STATUS</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 @endsection
