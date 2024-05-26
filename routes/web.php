@@ -26,15 +26,20 @@ use App\Http\Controllers\ProfileController;
 // Route::get('/', function () {
 //     return view('auth.login');
 // });
-Route::get('/cars', [carsController::class, 'index'])->middleware('auth');
+
 Route::get('/admin', [adminController::class, 'index'])->middleware('auth');
 Route::get('/order', [orderController::class, 'index'])->middleware('auth');
+Route::get('/rent/details/{id}', [orderController::class, 'show'])->name('rent.details');
 Route::get('/riwayat', [riwayatController::class, 'index'])->middleware('auth');
 Route::get('/pelanggan', [pelangganController::class, 'index'])->middleware('auth');
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware('auth');
 
+Route::get('/cars', [carsController::class, 'index'])->middleware('auth');
 Route::get('/add_cars', [add_carsController::class, 'index'])->middleware('auth');
-Route::post('/add', [add_carsController::class, 'store'])->name('store.add')->middleware('auth');
+Route::post('/add', [add_carsController::class, 'store'])->name('add.store')->middleware('auth');
+
+// Route::get('/add', [add_carsController::class, 'index'])->name('add_cars'); // Menampilkan halaman tambah mobil
+// Route::post('/add_cars', [add_carsController::class, 'store'])->name('add_cars');
 
 Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/log', [LoginController::class, 'login'])->name('login.store');

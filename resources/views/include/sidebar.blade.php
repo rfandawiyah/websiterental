@@ -70,6 +70,13 @@
                         </li>
                     </ul> -->
                 </li>
+                
+                <li class="sidebar-item {{ Route::is('riwayat') ? 'active' : '' }}">
+                    <a href="{{ route('riwayat') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Riwayat Transaksi</span>
+                    </a>
+                </li>
                 <li class="sidebar-item {{ Route::is('pelanggan') ? 'active' : '' }}">
                     <a href="{{ route('pelanggan') }}" class='sidebar-link'>
                         <i class="bi bi-collection-fill"></i>
@@ -80,12 +87,6 @@
                             <a href="extra-component-avatar.html">Avatar</a>
                         </li>
                     </ul> -->
-                </li>
-                <li class="sidebar-item {{ Route::is('riwayat') ? 'active' : '' }}">
-                    <a href="{{ route('riwayat') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-1x2-fill"></i>
-                        <span>Riwayat Transaksi</span>
-                    </a>
                 </li>
                 <!-- <li class="sidebar-title">PRODUCT</li> -->
 
