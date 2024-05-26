@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="container d-flex justify-content-center align-items-center ">
                     <div class="logo">
-                        <a href=""><img src="{{ asset('img/logo1.png') }}" alt="Logo"
+                        <a href="{{route('dashboard')}}"><img src="{{ asset('img/logo1.png') }}" alt="Logo"
                                 style="width: 160px; height: 160px;"></a>
                     </div>
                 </div>
@@ -53,8 +53,8 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item  ">
-                    <a href="cars" class='sidebar-link'>
+                <li class="sidebar-item {{ Route::is('cars') ? 'active' : '' }}">
+                    <a href="{{ route('cars') }}" class='sidebar-link'>
                         <i class="bi bi-hexagon-fill"></i>
                         <span>Mobil</span>
                     </a>

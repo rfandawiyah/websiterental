@@ -29,7 +29,9 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/admin', [adminController::class, 'index'])->middleware('auth');
 Route::get('/order', [orderController::class, 'index'])->middleware('auth');
-Route::get('/rent/details/{id}', [orderController::class, 'show'])->name('rent.details');
+Route::get('/order/create', [orderController::class, 'create'])->name('order.create');
+Route::post('/store', [orderController::class, 'store'])->name('order.store');
+Route::get('/order/details/{id}', [orderController::class, 'showDetails'])->name('rent.details');
 Route::get('/riwayat', [riwayatController::class, 'index'])->middleware('auth');
 Route::get('/pelanggan', [pelangganController::class, 'index'])->middleware('auth');
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware('auth');

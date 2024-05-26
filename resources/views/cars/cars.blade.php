@@ -17,7 +17,7 @@
                                         <tr>
                                             <th>Nama Mobil</th>
                                             <th>type</th>
-                                            <th>Harga</th>
+                                            <th>Harga Sewa</th>
                                             <th>Nopol</th>
                                             <th>Status</th>
                                         </tr>
