@@ -10,6 +10,7 @@ use App\Http\Controllers\pelangganController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\riwayatController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,9 @@ Route::get('/pelanggan', [pelangganController::class, 'index'])->name('pelanggan
 Route::get('/riwayat', [riwayatController::class, 'index'])->name('riwayat');
 Route::get('/cars', [carsController::class, 'index'])->name('cars');
 Route::post('/add_cars', [add_carsController::class, 'index'])->name('add_cars');
+
+// // profile
+Route::get('/data-profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('/profile/{user}/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile/{user}', [ProfileController::class, 'destroy'])->name('profile.destroy');
