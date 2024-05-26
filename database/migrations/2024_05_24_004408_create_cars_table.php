@@ -21,6 +21,10 @@ return new class extends Migration
             $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
+
+        // Schema::table('cars', function (Blueprint $table) {
+        //     $table->enum('status', ['available', 'rented', 'maintenance'])->default('available')->change();
+        // });
     }
 
     /**
@@ -29,5 +33,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('cars');
+        // Schema::table('cars', function (Blueprint $table) {
+        //     $table->enum('status', ['available', 'rented', 'maintenance'])->change();
+        // });
     }
+    
 };
