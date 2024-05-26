@@ -7,11 +7,13 @@
     <title>@yield('title')</title>
 
     @include('include.style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 
 </head>
 
 <body>
-<div id="app">
+    <div id="app">
         @include('include.sidebar')
         <div id="main">
             <header class="mb-3">
@@ -44,7 +46,7 @@
 
 
 
- <!-- <div class="container mt-3">
+<!-- <div class="container mt-3">
                 <div class="d-flex justify-content-between align-items-center">
                     <h3>Hallo Admin</h3>
                     <div class="theme-toggle d-flex gap-2 align-items-center">
@@ -78,4 +80,3 @@
                     </div>
                 </div>
             </div> -->
-           

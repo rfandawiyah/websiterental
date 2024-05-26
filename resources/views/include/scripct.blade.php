@@ -7,6 +7,17 @@
 <script src="{{ asset('template/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('template/assets/js/pages/dashboard.js') }}"></script>
 
+{{-- data table --}}
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script defer src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $('#example').DataTable();
+    });
+</script>
+
 <!-- SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>

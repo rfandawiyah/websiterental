@@ -43,7 +43,7 @@ class orderController extends Controller
         // Buat transaksi sewa
         $rent = new Rent();
         $rent->tgl_sewa = $request->tgl_sewa;
-        $rent->bayar = $request->bayar;
+        $rent->tgl_pembayaran = $request->tgl_pembayaran;
         $rent->status = 'unpaid';
         $rent->total = $request->total;
         $rent->NIK = $request->NIK;

@@ -17,7 +17,7 @@ class Rent extends Model
     // Kolom yang dapat diisi
     protected $fillable = [
         'tgl_sewa',
-        'bayar',
+        'tgl_pembayaran',
         'status',
         'total',
         'NIK',
