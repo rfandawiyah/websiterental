@@ -20,6 +20,7 @@
                                             <th>Harga Sewa</th>
                                             <th>Nopol</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -27,9 +28,20 @@
                                             <tr>
                                                 <td>{{ $car->merkmobil }}</td>
                                                 <td>{{ $car->type }}</td>
-                                                <td>{{ $car->harga }}</td>
+                                                <td>Rp{{ number_format($car->harga, 0, ',', '.') }}</td>
                                                 <td>{{ $car->nopol }}</td>
                                                 <td>{{ $car->status }}</td>
+                                                <td>
+                                                    <a href="{{ route('edit_car', ['nopol' => $car->nopol]) }}"
+                                                        class="btn btn-sm btn-primary">Edit</a>
+                                                    <form action="{{ route('delete_car', ['nopol' => $car->nopol]) }}"
+                                                        method="POST" style="display: inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus mobil ini?')">Delete</button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -9,7 +9,7 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h4 class="mb-0">Tabel Sewa Mobil</h4>
-                                <a href="{{ route('order.create') }}" class="btn btn-success">Tambah Pesanan</a>
+                                <a href="{{ route('order.create') }}" class="btn btn-primary">Tambah Pesanan</a>
                             </div>
                             <div class="card-body">
                                 <table id="example" class="table table-striped" style="width:100%">

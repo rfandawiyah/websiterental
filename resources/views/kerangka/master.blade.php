@@ -10,6 +10,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 
+    {{-- <style>
+        /* Mode Malam */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        body.dark-mode .card {
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
+
+        body.dark-mode .text-muted {
+            color: #b3b3b3 !important;
+        }
+
+        /* Pastikan semua teks dalam card berubah warna */
+        body.dark-mode .card-body h6 {
+            color: #ffffff;
+        }
+    </style> --}}
+
 </head>
 
 <body>
@@ -38,6 +60,34 @@
     </div>
 
     @include('include.scripct')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleDark = document.getElementById('toggle-dark');
+
+            toggleDark.addEventListener('change', function() {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            // Memeriksa status mode malam saat halaman dimuat
+            if (localStorage.getItem('dark-mode') === 'true') {
+                document.body.classList.add('dark-mode');
+                toggleDark.checked = true;
+            } else {
+                document.body.classList.remove('dark-mode');
+                toggleDark.checked = false;
+            }
+
+            // Menyimpan status mode malam ke localStorage
+            toggleDark.addEventListener('change', function() {
+                if (toggleDark.checked) {
+                    localStorage.setItem('dark-mode', 'true');
+                } else {
+                    localStorage.setItem('dark-mode', 'false');
+                }
+            });
+        });
+    </script>
 
 </body>
 

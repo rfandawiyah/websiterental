@@ -61,6 +61,10 @@
                                 </tr>
                         </table>
                         @endforeach
+                        <form action="{{ route('order.confirm', $rent->id_sewa) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Konfirmasi Pesanan</button>
+                        </form>
                     </div>
                 </div>
             </div>

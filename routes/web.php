@@ -29,9 +29,6 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/admin', [adminController::class, 'index'])->middleware('auth');
 Route::get('/order', [orderController::class, 'index'])->middleware('auth');
-Route::get('/order/create', [orderController::class, 'create'])->name('order.create');
-Route::post('/store', [orderController::class, 'store'])->name('order.store');
-Route::get('/order/details/{id}', [orderController::class, 'showDetails'])->name('rent.details');
 Route::get('/riwayat', [riwayatController::class, 'index'])->middleware('auth');
 Route::get('/pelanggan', [pelangganController::class, 'index'])->middleware('auth');
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware('auth');
@@ -59,8 +56,24 @@ Route::get('/riwayat', [riwayatController::class, 'index'])->name('riwayat');
 Route::get('/cars', [carsController::class, 'index'])->name('cars');
 Route::post('/add_cars', [add_carsController::class, 'index'])->name('add_cars');
 
+// Route untuk menampilkan form edit mobil
+Route::get('/cars/{nopol}/edit', [CarsController::class, 'edit'])->name('edit_car');
+
+// Route untuk menyimpan pembaruan mobil
+Route::put('/cars/{nopol}/update', [CarsController::class, 'update'])->name('update_car');
+
+// Route untuk menghapus mobil
+Route::delete('/cars/{nopol}/delete', [CarsController::class, 'destroy'])->name('delete_car');
+
 // // profile
 Route::get('/data-profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile/{user}/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile/{user}', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+// rent atau order
+Route::get('/order/create', [orderController::class, 'create'])->name('order.create');
+Route::post('/store', [orderController::class, 'store'])->name('order.store');
+Route::get('/order/details/{id}', [orderController::class, 'showDetails'])->name('rent.details');
+Route::post('/order/confirm/{id}', [OrderController::class, 'confirm'])->name('order.confirm');
+Route::get('/riwayat/history', [riwayatController::class, 'index'])->name('riwayat.history');

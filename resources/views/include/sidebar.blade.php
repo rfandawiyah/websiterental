@@ -55,7 +55,7 @@
                 </li>
                 <li class="sidebar-item {{ Route::is('cars') ? 'active' : '' }}">
                     <a href="{{ route('cars') }}" class='sidebar-link'>
-                        <i class="bi bi-hexagon-fill"></i>
+                        <i class="bi bi-car-front-fill"></i>
                         <span>Mobil</span>
                     </a>
                 </li>

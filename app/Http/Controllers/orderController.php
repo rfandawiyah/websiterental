@@ -82,6 +82,30 @@ class orderController extends Controller
         }
     }
 
+    public function history()
+    {
+        $rents = Rent::where('status', 'Confirmed')->get();
+        return view('riwayat.riwayat', compact('rents'));
+    }
+
+    public function confirm($id_sewa)
+    {
+        $rent = Rent::find($id_sewa);
+
+        // Periksa apakah status pesanan masih "unpaid"
+        if ($rent->status === 'unpaid') {
+            // Ubah status pesanan menjadi "paid"
+            $rent->status = 'paid';
+            $rent->save();
+
+            // Redirect ke halaman riwayat dengan pesan sukses
+            return redirect()->route('riwayat.history')->with('success', 'Pesanan berhasil dikonfirmasi.');
+        } else {
+            // Redirect dengan pesan bahwa pesanan sudah terkonfirmasi sebelumnya
+            return redirect()->back()->with('error', 'Pesanan sudah terkonfirmasi sebelumnya.');
+        }
+    }
+
 
 }
 
