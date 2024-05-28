@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-@section('title', 'Dashboard')
+@section('title', 'Mobil')
 @section('content')
     <div class="page-content">
         <section class="row">
@@ -32,15 +32,20 @@
                                                 <td>{{ $car->nopol }}</td>
                                                 <td>{{ $car->status }}</td>
                                                 <td>
-                                                    <a href="{{ route('edit_car', ['nopol' => $car->nopol]) }}"
-                                                        class="btn btn-sm btn-primary">Edit</a>
-                                                    <form action="{{ route('delete_car', ['nopol' => $car->nopol]) }}"
-                                                        method="POST" style="display: inline;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-sm btn-danger"
-                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus mobil ini?')">Delete</button>
-                                                    </form>
+                                                    <div class="d-flex">
+                                                        <a href="{{ route('edit_car', ['nopol' => $car->nopol]) }}"
+                                                            class="btn btn-primary mx-1">Edit</a>
+                                                        <button type="button" class="btn btn-danger mx-1"
+                                                            onclick="deleteUser('{{ $car->nopol }}')">Delete</button>
+                                                        <form id="delete-form-{{ $car->nopol }}"
+                                                            action="{{ route('delete_car', ['nopol' => $car->nopol]) }}"
+                                                            method="POST" style="display: none;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                id="delete-btn-{{ $car->nopol }}"></button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach

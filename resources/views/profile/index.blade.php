@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-
+@section('title', 'Admin')
 @section('content')
     <!-- Basic Tables start -->
     <section class="section">
@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <!-- Table with outer spacing -->
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table id="example" class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -31,7 +31,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <a class="btn btn-primary mx-1"
-                                                            href="{{ route('profile.edit', $user->id) }}">Update</a>
+                                                            href="{{ route('profile.edit', $user->id) }}">Edit</a>
                                                         <button type="button" class="btn btn-danger mx-1"
                                                             onclick="deleteUser('{{ $user->id }}')">Delete</button>
                                                         <form id="delete-form-{{ $user->id }}"

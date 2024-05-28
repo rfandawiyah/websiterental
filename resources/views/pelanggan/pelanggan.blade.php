@@ -1,5 +1,3 @@
-{{-- dashboard --}}
-
 @extends('kerangka.master')
 @section('title', 'Dashboard')
 @section('content')
@@ -33,6 +31,9 @@
                                             <td>61</td>
                                             <td>2011-04-25</td>
                                             <td>$320,800</td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Garrett Winters</td>
@@ -41,6 +42,9 @@
                                             <td>63</td>
                                             <td>2011-07-25</td>
                                             <td>$170,750</td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Ashton Cox</td>
@@ -49,6 +53,9 @@
                                             <td>66</td>
                                             <td>2009-01-12</td>
                                             <td>$86,000</td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -60,3 +67,15 @@
         </section>
     </div>
 @endsection
+
+{{-- @push('scripts')
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $('#example').DataTable();
+        });
+    </script>
+@endpush --}}

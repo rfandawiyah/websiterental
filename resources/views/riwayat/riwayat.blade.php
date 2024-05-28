@@ -26,25 +26,22 @@
                                             <th>Total Pembayaran</th>
                                             <th>Tgl Pembayaran</th>
                                             <th>Status</th>
-                                            <th>Aksi</th>
+                                            <th>Status Mobil</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($rents as $index => $rent)
+                                        @foreach ($rents as $rent)
                                             <tr>
-                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $rent->id_sewa }}</td>
-                                                <td>{{ $rent->customer->nama }}</td>
+                                                <td>{{ $rent->customer->nama }} ({{ $rent->customer->NIK }})</td>
                                                 <td>{{ $rent->tgl_sewa }}</td>
-                                                <td>Rp. {{ number_format($rent->total, 0, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($rent->total_pembayaran, 0, ',', '.') }}</td>
                                                 <td>{{ $rent->tgl_pembayaran }}</td>
                                                 <td>{{ $rent->status }}</td>
                                                 <td>
-                                                    @if ($rent->status === 'unpaid')
-                                                        <form action="{{ route('order.confirm', $rent->id_sewa) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                        </form>
+                                                    @if ($rent->status === 'paid')
+                                                        Booked
                                                     @endif
                                                 </td>
                                             </tr>

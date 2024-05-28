@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-@section('title', 'Dashboard')
+@section('title', 'Edit Mobil')
 @section('content')
     <div class="page-content">
         <section class="row">
@@ -22,7 +22,7 @@
                                 {{ session('error') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('update_car', ['nopol' => $cars->nopol]) }}"
+                        <form id="editForm" method="POST" action="{{ route('update_car', ['nopol' => $cars->nopol]) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -93,4 +93,5 @@
             </div>
         </section>
     </div>
+    @include('include.scripct')
 @endsection
