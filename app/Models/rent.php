@@ -11,13 +11,28 @@ class Rent extends Model
 
     protected $primaryKey = 'id_sewa';
 
+    // Primary key adalah auto-incrementing
+    public $incrementing = true;
+
+    // Kolom yang dapat diisi
+    protected $fillable = [
+        'tgl_sewa',
+        'tgl_pembayaran',
+        'status',
+        'total',
+        'NIK',
+    ];
+
+    // Timestamps tidak digunakan pada tabel ini
+    public $timestamps = false;
+
     public function rentDetails()
     {
-        return $this->hasMany(rent_detail::class, 'id_sewa');
+        return $this->hasMany(rent_detail::class, 'id_sewa', 'id_sewa');
     }
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class, 'NIK');
+        return $this->belongsTo(Customer::class, 'NIK', 'NIK');
     }
 }

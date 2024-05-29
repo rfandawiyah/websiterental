@@ -1,33 +1,45 @@
 @extends('kerangka.master')
+@section('title', 'Pelanggan')
 @section('content')
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">No Telp</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Firman</td>
-                <td>Jember</td>
-                <td>081</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Fir</td>    
-                <td>Jember</td>
-                <td>081</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Man</td>
-                <td>Jember</td>
-                <td>081</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="page-content">
+        <section class="row">
+            <div class="col-12 col-lg-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Tabel Pelanggan</h4>
+                            </div>
+                            <div class="card-body">
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>NIK</th>
+                                            <th>Nama</th>
+                                            <th>No. Telepon</th>
+                                            <th>Alamat</th>
+                                            {{-- <th>Waktu Pembuatan</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($customers as $customer)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $customer->NIK }}</td>
+                                                <td>{{ $customer->nama }}</td>
+                                                <td>{{ $customer->no_telephon }}</td>
+                                                <td>{{ $customer->alamat }}</td>
+                                                {{-- <td>{{ $customer->created_at }}</td> --}}
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 @endsection

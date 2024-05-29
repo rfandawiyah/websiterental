@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rents', function (Blueprint $table) {
-            $table->id('id_sewa'); // Primary key
+            $table->id('id_sewa'); 
             $table->date('tgl_sewa');
-            $table->decimal('bayar', 10, 2);
+            $table->date('tgl_pembayaran');
             $table->enum('status', ['paid', 'unpaid']);
             $table->decimal('total', 10, 2);
-            $table->string('NIK');
+            $table->string('NIK', 20);
 
             // Define foreign key constraint
             $table->foreign('NIK')->references('NIK')->on('customers')->onDelete('cascade');
