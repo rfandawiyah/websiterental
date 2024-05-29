@@ -15,27 +15,28 @@ class riwayatController extends Controller
         }
 
         // Mengambil semua data pesanan dengan status 'paid'
-        $rents = Rent::where('status', 'paid')->get();
+        $rents = Rent::whereIn('status', ['paid', 'Selesai'])->get();
 
         // Meneruskan data ke view riwayat
         return view('riwayat.riwayat', compact('rents'));
     }
 
-    // public function confirm($id_sewa)
-    // {
-    //     $rent = Rent::findOrFail($id_sewa);
+    public function showDetails($id)
+    {
+        $rent = Rent::with('rentDetails.car', 'customer')->findOrFail($id);
+        return view('riwayat.detail', compact('rent'));
+    }
 
-    //     // Periksa apakah status pesanan masih "unpaid"
-    //     if ($rent->status === 'unpaid') {
-    //         // Ubah status pesanan menjadi "paid"
-    //         $rent->status = 'paid';
-    //         $rent->save();
+    public function konfirmasiPesanan($id_sewa)
+    {
+        $rent = Rent::find($id_sewa);
+        if ($rent) {
+            $rent->status = 'Selesai';  // Ubah status menjadi 'Selesai'
+            $rent->save();
 
-    //         // Redirect ke halaman riwayat dengan pesan sukses
-    //         return redirect()->route('riwayat.history')->with('success', 'Pesanan berhasil dikonfirmasi.');
-    //     } else {
-    //         // Redirect dengan pesan bahwa pesanan sudah terkonfirmasi sebelumnya
-    //         return redirect()->back()->with('error', 'Pesanan sudah terkonfirmasi sebelumnya.');
-    //     }
-    // }
+            return redirect()->route('riwayat')->with('success', 'Pesanan berhasil diselesaikan.');
+        } else {
+            return redirect()->route('riwayat')->with('error', 'Pesanan tidak ditemukan.');
+        }
+    }
 }

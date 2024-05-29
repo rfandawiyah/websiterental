@@ -16,7 +16,6 @@ class orderController extends Controller
             return redirect('/');
         }
 
-        // Mengambil hanya pesanan dengan status "unpaid"
         $rents = Rent::with(['customer', 'rentDetails.car'])->where('status', 'unpaid')->paginate(15);
         return view('order.index', compact('rents'));
     }
@@ -34,11 +33,18 @@ class orderController extends Controller
         return view('order.create', compact('cars', 'customers'));
     }
 
+    public function rent()
+    {
+        // $login = logincustomer::all();
+        $rent = Rent::all();
+        return response()->json($rent);
+    }
+
     public function store(Request $request)
     {
         try {
 
-            dd($request->all());
+            // dd($request->all());
             // Validasi input
             $validatedData = $request->validate([
                 'NIK' => 'required|string',
@@ -89,9 +95,9 @@ class orderController extends Controller
         return view('riwayat.riwayat', compact('rents'));
     }
 
-    public function confirm($id)
+    public function confirm($id_sewa)
     {
-        $rent = Rent::find($id);
+        $rent = Rent::find($id_sewa);
 
         // Periksa apakah status pesanan masih "unpaid"
         if ($rent->status === 'unpaid') {
@@ -109,4 +115,3 @@ class orderController extends Controller
 
 
 }
-

@@ -1,5 +1,3 @@
-{{-- dashboard --}}
-
 @extends('kerangka.master')
 @section('title', 'Dashboard')
 @section('content')
@@ -38,7 +36,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
-                        <div class="card">
+                        <div class="card" style="height: 129px">
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-flex justify-content-start">
@@ -105,8 +103,7 @@
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
+        </section>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-@section('title', 'Dashboard')
+@section('title', 'Pesanan')
 @section('content')
     <div class="page-content">
         <section class="row">

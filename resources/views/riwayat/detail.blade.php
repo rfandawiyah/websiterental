@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-@section('title', 'Detail Pesanan')
+@section('title', 'Detail Riwayat')
 @section('content')
     <div class="page-content">
         <section class="row">
@@ -7,14 +7,14 @@
                 <div class="card">
                     <div class="card-header">
                         <div>
-                            <h4>Detail Order</h4>
+                            <h4>Detail riwayat</h4>
                         </div>
                     </div>
                     <div class="card-body">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('order') }}">Pesanan</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Detail Pesanan</li>
+                                <li class="breadcrumb-item"><a href="{{ route('riwayat') }}">Riwayat</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Detail riwayat</li>
                             </ol>
                         </nav>
                         <table class="table table-striped">
@@ -61,9 +61,9 @@
                                 </tr>
                         </table>
                         @endforeach
-                        <form action="{{ route('order.confirm', $rent->id_sewa) }}" method="POST">
+                        <form action="{{ route('riwayat.konfirmasi', $rent->id_sewa) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-primary">Konfirmasi Pesanan</button>
+                            <button type="submit" class="btn btn-primary">Pesanan Selesai</button>
                         </form>
                     </div>
                 </div>

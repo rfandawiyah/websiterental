@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-@section('title', 'Dashboard')
+@section('title', 'Riwayat')
 @section('content')
     <div class="page-content">
         <section class="row">
@@ -26,7 +26,7 @@
                                             <th>Total Pembayaran</th>
                                             <th>Tgl Pembayaran</th>
                                             <th>Status</th>
-                                            <th>Status Mobil</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -36,13 +36,18 @@
                                                 <td>{{ $rent->id_sewa }}</td>
                                                 <td>{{ $rent->customer->nama }} ({{ $rent->customer->NIK }})</td>
                                                 <td>{{ $rent->tgl_sewa }}</td>
-                                                <td>Rp. {{ number_format($rent->total_pembayaran, 0, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($rent->total, 0, ',', '.') }}</td>
                                                 <td>{{ $rent->tgl_pembayaran }}</td>
-                                                <td>{{ $rent->status }}</td>
                                                 <td>
-                                                    @if ($rent->status === 'paid')
-                                                        Booked
+                                                    @if ($rent->status === 'Selesai')
+                                                        Dikembalikan
+                                                    @else
+                                                        {{ $rent->status }}
                                                     @endif
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('riwayat.detail', $rent->id_sewa) }}"
+                                                        class="btn btn-primary">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach

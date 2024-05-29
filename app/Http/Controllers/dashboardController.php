@@ -18,30 +18,29 @@ class DashboardController extends Controller
             return redirect('/');
         }
 
-        //jumlah mobil yg ada 
+        // jumlah mobil yang ada 
         $jumlah_mobil = Cars::count();
 
-        //jumlah penghasilan bulan ini
+        // jumlah penghasilan bulan ini dari transaksi yang sudah selesai
         $year = date('Y');
         $month = date('n');
-        $total = Rent::whereYear('tgl_sewa', $year)->whereMonth('tgl_sewa', $month)->sum('total');
+        $total = Rent::where('status', 'selesai')->whereYear('tgl_sewa', $year)->whereMonth('tgl_sewa', $month)->sum('total');
 
-        //jumlah sewa bulan ini
+        // jumlah sewa bulan ini dari transaksi yang sudah selesai
         $now = Carbon::now();
         $year = $now->year;
         $month = $now->month;
-        $tot = Rent::whereYear('tgl_sewa', $year)->whereMonth('tgl_sewa', $month)->count('id_sewa');
+        $tot = Rent::where('status', 'selesai')->whereYear('tgl_sewa', $year)->whereMonth('tgl_sewa', $month)->count('id_sewa');
 
-        //jumlah penghasilan tahun ini
-        $now = Carbon::now();
-        $year = $now->year;
-        $totalpendapatan = Rent::whereYear('tgl_sewa', $year)->sum('total');
+        // jumlah penghasilan tahun ini dari transaksi yang sudah selesai
+        $totalpendapatan = Rent::where('status', 'selesai')->whereYear('tgl_sewa', $year)->sum('total');
 
-        // Mendapatkan total pendapatan per bulan
+        // Mendapatkan total pendapatan per bulan dari transaksi yang sudah selesai
         $monthlyEarnings = Rent::select(
             DB::raw('MONTH(tgl_sewa) as month'),
             DB::raw('SUM(total) as total')
         )
+            ->where('status', 'selesai')
             ->whereYear('tgl_sewa', $year)
             ->groupBy(DB::raw('MONTH(tgl_sewa)'))
             ->pluck('total', 'month');
@@ -60,7 +59,7 @@ class DashboardController extends Controller
             return Carbon::create($year, $month, 1)->format('F');
         });
         $earnings = collect(range(1, 12))->map(function ($month) use ($year) {
-            return Rent::whereYear('tgl_sewa', $year)->whereMonth('tgl_sewa', $month)->sum('total');
+            return Rent::where('status', 'selesai')->whereYear('tgl_sewa', $year)->whereMonth('tgl_sewa', $month)->sum('total');
         });
 
         // Data untuk pie chart
@@ -72,19 +71,6 @@ class DashboardController extends Controller
         $visitorLabels = $visitorData->pluck('nopol');
         $visitorCounts = $visitorData->pluck('count');
 
-
-        // return view('dashboard.dashboard', [
-        //     'jumlah_mobil' => $jumlah_mobil,
-        //     'total' => $total,
-        //     'totalpendapatan' => $totalpendapatan,
-        //     'months' => $months,
-        //     'earnings' => $earnings,
-        //     'tot' => $tot,
-        //     'visitorLabels' => $visitorLabels,
-        //     'visitorCount' => $visitorCounts,
-        //     'visitorData' => $visitorData
-
-        // ]);
         return view('dashboard.dashboard', compact('total', 'totalpendapatan', 'jumlah_mobil', 'tot', 'months', 'earnings', 'visitorLabels', 'visitorCounts'));
     }
 }

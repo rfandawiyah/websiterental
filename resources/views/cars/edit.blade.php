@@ -29,7 +29,7 @@
                             <div class="mb-3">
                                 <label for="merkmobil" class="form-label">Merk Mobil</label>
                                 <input type="text" class="form-control" id="merkmobil" name="merkmobil"
-                                    value="{{ $cars->merkmobil }}" readonly>
+                                    value="{{ $cars->merkmobil }}" required>
                             </div>
                             <div class="mb-3">
                                 <label for="type" class="form-label">Tipe</label>
