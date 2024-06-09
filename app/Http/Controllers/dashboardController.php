@@ -63,14 +63,16 @@ class DashboardController extends Controller
         });
 
         // Data untuk pie chart
-        $visitorData = rent_detail::select('nopol', DB::raw('count(nopol) as count'))
-            ->groupBy('nopol')
+        $visitorData = rent_detail::select('cars.merkmobil', DB::raw('count(rent_details.nopol) as count'))
+            ->join('cars', 'rent_details.nopol', '=', 'cars.nopol')
+            ->groupBy('cars.merkmobil')
             ->orderBy('count', 'desc')
             ->limit(5)
             ->get();
-        $visitorLabels = $visitorData->pluck('nopol');
+
+        $carBrands = $visitorData->pluck('merkmobil');
         $visitorCounts = $visitorData->pluck('count');
 
-        return view('dashboard.dashboard', compact('total', 'totalpendapatan', 'jumlah_mobil', 'tot', 'months', 'earnings', 'visitorLabels', 'visitorCounts'));
+        return view('dashboard.dashboard', compact('total', 'totalpendapatan', 'jumlah_mobil', 'tot', 'months', 'earnings', 'carBrands', 'visitorCounts'));
     }
 }

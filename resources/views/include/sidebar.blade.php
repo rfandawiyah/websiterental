@@ -6,8 +6,8 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="container d-flex justify-content-center align-items-center ">
                     <div class="logo">
-                        <a href="{{route('dashboard')}}"><img src="{{ asset('img/logo1.png') }}" alt="Logo"
-                                style="width: 160px; height: 160px;"></a>
+                        <a href="{{route('dashboard')}}"><img src="{{ asset('img/nobg.png') }}" alt="Logo"
+                                style="width: 150px; height: 170px;"></a>
                     </div>
                 </div>
                 <!-- <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
