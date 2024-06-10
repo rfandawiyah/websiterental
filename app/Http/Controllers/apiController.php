@@ -146,5 +146,39 @@ class apiController extends Controller
         return response()->json($rents);
     }
 
+    public function storeTransaction(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'customer_id' => 'required|exists:customers,id',
+        'car_id' => 'required|exists:cars,id',
+        'rent_start_date' => 'required|date',
+        'rent_end_date' => 'required|date|after:rent_start_date',
+        'total_amount' => 'required|numeric',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'message' => 'Validation Error',
+            'errors' => $validator->errors()
+        ], 422);
+    }
+
+    $transaction = new rent_detail([
+        'customer_id' => $request->get('customer_id'),
+        'car_id' => $request->get('car_id'),
+        'rent_start_date' => $request->get('rent_start_date'),
+        'rent_end_date' => $request->get('rent_end_date'),
+        'total_amount' => $request->get('total_amount'),
+    ]);
+
+    $transaction->save();
+
+    return response()->json([
+        'message' => 'Transaction created successfully!',
+        'transaction' => $transaction
+    ], 201);
+}
+
+
 
 }
