@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\rent_detail;
 use Illuminate\Http\Request;
 use App\Models\logincustomer;
 use Illuminate\Support\Facades\Log;
@@ -130,6 +131,19 @@ class apiController extends Controller
         return response()->json([
             'message' => 'Logout Success',
         ], 200);
+    }
+
+    public function dashboard()
+    {
+        $cars = Cars::select('nopol', 'merkmobil', 'harga', 'type', 'status', 'gambar', 'deskripsi')->get();
+        return response()->json($cars);
+    }
+
+    // Metode baru untuk API transaksi
+    public function transactions()
+    {
+        $rents = rent_detail::with('rentDetails')->get();
+        return response()->json($rents);
     }
 
 

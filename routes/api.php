@@ -39,3 +39,5 @@ Route::post('/riwayatSelesai', [apiController::class, 'rent']);
 // Customers
 Route::post('/customers', [apiController::class, 'index']);
 Route::post('/', [apiController::class, 'index']);
+Route::get('/transactions', [apiController::class, 'transactions']);
+Route::get('/dashboard', [apiController::class, 'dashboard']);
