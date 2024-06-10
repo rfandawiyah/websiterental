@@ -95,7 +95,7 @@
                 <div class="col-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Visitors Profile</h4>
+                            <h4>Armada Terlaris</h4>
                         </div>
                         <div class="card-body">
                             <div id="chart-populer"></div>
@@ -139,7 +139,7 @@
                     height: 350
                 },
                 series: @json($visitorCounts),
-                labels: @json($visitorLabels),
+                labels: @json($carBrands),
                 responsive: [{
                     breakpoint: 480,
                     options: {
