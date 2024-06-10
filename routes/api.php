@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\apiController;
 use App\Http\Controllers\pelangganController;
 // use App\Http\Controllers\registerCustomerController;
@@ -16,10 +17,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::match(['get', 'post'], '/loginCustomers', [apiController::class, 'login']);
 Route::post('/registrasiCustomer', [apiController::class, 'register']);
 Route::post('/checkEmail', [apiController::class, 'checkEmail']);
+Route::get('/profile', [apiController::class, 'getProfile'])->middleware('auth:sanctum');
+Route::put('/profile', [apiController::class, 'updateProfile'])->middleware('auth:sanctum');
+Route::post('/logout', [apiController::class, 'logout'])->middleware('auth:sanctum');
 // Route::post('/updateCustomer', [apiController::class, 'index']);
 // Route::post('/updatePassword', [apiController::class, 'index']);
 
 // Cars
+
+
+
 Route::get('/cars', [apiController::class, 'cars']);
 Route::get('/filterMobil', [apiController::class, 'cars']);
 
